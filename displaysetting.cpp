@@ -59,6 +59,10 @@ int DisplaySetting::Compare(const DisplaySetting &other) const
     if(height() != other.height()){
         return height() > other.height() ? 1: -1;
     }
+    
+    if(freq() != other.freq()){
+        return freq() > other.freq() ? 1: -1;
+    }
     return 0;
 }
 

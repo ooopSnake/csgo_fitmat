@@ -98,8 +98,10 @@ Window {
          
                 Text {
                     id: tvResolution
-                    font.bold: model.current
+                    anchors.left: parent.left
+                    anchors.leftMargin: 5
                     anchors.verticalCenter: parent.verticalCenter
+                    font.bold: model.current
                     text: (() => {
                         let s = `${model.width} x ${model.height}\t(${model.freq})  `
                         if (model.id === normalId) {
