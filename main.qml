@@ -7,7 +7,7 @@ Window {
     width: 300
     height: 380
     visible: true
-    title: qsTr("fitmat")
+    title: qsTr("fitmat 20220606")
     
     property string normalId: ""
     property string gameId: ""
@@ -16,7 +16,7 @@ Window {
         modelScreenResolutions.clear()
         let displays = display.getSettings(1)
         let idx = 0
-        let currentSelectIdx = null;
+        let currentSelectIdx = -1;
         for (let it of displays) {
             it.index = idx++
             if (it.current) {
@@ -27,14 +27,14 @@ Window {
             }
             modelScreenResolutions.append(it)
         }
-        if (currentSelectIdx) {
+        if (currentSelectIdx!=-1) {
             lvScreenResolutions.currentIndex = currentSelectIdx
         }
     }
 
     function autoSwitchDisplay() {
         let curData = modelScreenResolutions.get(lvScreenResolutions.currentIndex)
-        let nextId
+        let nextId = null
         if (curData.id === normalId) {
             nextId = gameId
         } else {
@@ -71,8 +71,8 @@ Window {
             anchors.fill: parent
             model: modelScreenResolutions
             boundsBehavior: Flickable.StopAtBounds
-            highlightMoveDuration: 50
-            highlightMoveVelocity: -1
+            highlightMoveDuration: 10
+            highlightResizeDuration: 0
             interactive: true
             keyNavigationEnabled: true
             keyNavigationWraps: true
