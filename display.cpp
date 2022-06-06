@@ -64,5 +64,5 @@ int Display::ApplySetting(const QString& id)
         return 1;
     }
     auto* dmodew = &settings->devmodew();
-    return (int)::ChangeDisplaySettingsW(dmodew,0);
+    return (int)::ChangeDisplaySettingsW(dmodew,CDS_UPDATEREGISTRY|CDS_GLOBAL);
 }
