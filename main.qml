@@ -53,7 +53,7 @@ Window {
             reloadDisplay()
         }
         if (parseInt(autoExit) === 1) {
-            window.close()
+            Qt.quit()
         }
     }
 
@@ -83,7 +83,7 @@ Window {
                 if (event.key === Qt.Key_F5) {
                     reloadDisplay();
                 } else if (event.key === Qt.Key_Escape) {
-                    window.close()
+                    Qt.quit()
                 }
             }
 
